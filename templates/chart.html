@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thank You for Voting</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+            background-color: #f0f8ff;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 30px;
+            border: 5px solid #333;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 600px;
+        }
+        #results {
+            margin-top: 30px;
+            display: none; /* Hidden initially */
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        a {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-success">✅ Thanks for voting!</h2>
+        <br>
+        <a id="showResults" class="btn btn-primary">📊 View Results</a>
+        <a href="/" class="btn btn-secondary ms-3">🔙 Back to Home</a>
+
+        <div id="results">
+            <h3 class="mt-4">Voting Results</h3>
+            <img src="{{ url_for('static', filename='votes.png') }}" alt="Vote Chart">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('showResults').addEventListener('click', function() {
+            document.getElementById('results').style.display = 'block';
+            this.style.display = 'none';  // Hide the button after click
+        });
+    </script>
+</body>
+</html>
